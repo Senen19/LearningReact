@@ -1,0 +1,25 @@
+Snapshots código Max --> https://github.com/academind/react-complete-guide-code/tree/03-react-basics-working-with-components/code
+
+
+
+
+Crear una aplicación de React --> npx create-react-app [nombre]
+								  cd [nombre]
+								  npm start
+								  
+Iniciar una aplicación de React --> npm start, inicializa el server de desarrollo en local
+
+Instalar paquetes necesarios para una app de React --> npm install (dentro carpeta con plantilla React,
+si se ha usado el npx create-react-app normalmente no se deberá usar este comando)
+
+----------------------------------------------------------------------------------------------------------
+
+La carpeta node_module contiene todas las dependencias y librearias de terceros, usualmente
+no se deberá modificar. Las dependencias también se pueden ver en el package.json.
+
+Donde trabajaremos será en la carpeta src. React es básicamente código JavaScript.
+
+En src, index.js es el primer archivo que se ejecuta cuando se incializa la app. En este archivo
+ocurren varias transformaciones antes de ser ejecutado en el buscador que facilitan su lectura
+y su manejo.
+
