@@ -23,3 +23,30 @@ En src, index.js es el primer archivo que se ejecuta cuando se incializa la app.
 ocurren varias transformaciones antes de ser ejecutado en el buscador que facilitan su lectura
 y su manejo.
 
+
+
+En react, es recomendable crear una carpeta para almacenar todos los componentes. Básicamente funciona como un gran
+conjunto de ficheros que se interelacionan entre sí en una especie de arbol. El componente principal es <App />, del cual
+derivarán el resto de componentes, solo <App /> será renderizado mientras que el resto de componentes
+derivarán de él.
+
+En react, al crear un componente lo normal es empezar con la primera letra en mayúscula.
+
+I M P O R T A N T E
+	En React, un componente es únicamente una función de JavaScript
+I M P O R T A N T E
+
+Un componente de React debe ser siempre exportado e importado a otro fichero (usualmente a <App />).
+
+Exportación: export default ExpenseItem;
+importación: import ExpenseItem from "./components/ExpenseItem";
+
+Una vez importado al componente principal <App />, se pondrá como si fuera una etiqueta html y renderizará
+el contenido dentro de este componente.
+
+Cuando indicamos el return, únicamente puede haber un solo parámetro. Para ello, podríamos englobarlo
+todo dentro de un único div y es muy recomendable englobarlo todo dentro de paréntesis.
+
+I M P O R T A N T E
+	El auto formato para hacer legible el código es SHIFT + ALT + F
+I M P O R T A N T E
