@@ -23,7 +23,7 @@ En src, index.js es el primer archivo que se ejecuta cuando se incializa la app.
 ocurren varias transformaciones antes de ser ejecutado en el buscador que facilitan su lectura
 y su manejo.
 
-
+Los componente se fundamentan en su reusabilidad y la límpia distribución de código
 
 En react, es recomendable crear una carpeta para almacenar todos los componentes. Básicamente funciona como un gran
 conjunto de ficheros que se interelacionan entre sí en una especie de arbol. El componente principal es <App />, del cual
@@ -33,7 +33,9 @@ derivarán de él.
 En react, al crear un componente lo normal es empezar con la primera letra en mayúscula.
 
 I M P O R T A N T E
-	En React, un componente es únicamente una función de JavaScript
+	En React, un componente es únicamente una función de JavaScript. Su contenido tiene apariencia de
+	ser html normal, pero en realidad es JSX, una forma de código JS que se asemeja a HTML y facilita
+	su manejo.
 I M P O R T A N T E
 
 Un componente de React debe ser siempre exportado e importado a otro fichero (usualmente a <App />).
@@ -50,3 +52,34 @@ todo dentro de un único div y es muy recomendable englobarlo todo dentro de par
 I M P O R T A N T E
 	El auto formato para hacer legible el código es SHIFT + ALT + F
 I M P O R T A N T E
+
+----------------------------------------------------------------------------------------------------------
+CSS y React
+
+El archivo CSS de un componente suele llamarse igual que el componente que hace referencia y se pondrá 
+junto a él. Este archivo CSS, al igual que los componentes, se deberá importar al archivo que hace referencia:
+import './ExpenseItem.css';
+
+Para establecer una clase usaremos className ya que, al ser fundamentalmente código JS vitaminado el componente,
+la palabra class es una palabra reservada.
+<div className="expense-item">
+
+----------------------------------------------------------------------------------------------------------
+Para introducir variables dentro de un componente usaremos únicamente {} sin añadir el $ como en JS ni los
+backticks.
+ 
+<h2>{variable}</h2>
+
+Dentro de los {} se podrán realizar operaciones básicas y demás de JS.
+
+----------------------------------------------------------------------------------------------------------
+Recibir Datos
+
+A la hora de recibir datos, se pondrán en el componente principal <App /> y se añadirán a los componentes
+a los que hacen referencia: 
+
+<ExpenseItem
+        title={expenses[0].title}
+        amount={expenses[0].amount}
+        date={expenses[0].date}>
+</ExpenseItem>
