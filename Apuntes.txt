@@ -1,8 +1,5 @@
 Snapshots código Max --> https://github.com/academind/react-complete-guide-code/tree/03-react-basics-working-with-components/code
 
-
-
-
 Crear una aplicación de React --> npx create-react-app [nombre]
 								  cd [nombre]
 								  npm start
@@ -13,6 +10,8 @@ Instalar paquetes necesarios para una app de React --> npm install (dentro carpe
 si se ha usado el npx create-react-app normalmente no se deberá usar este comando)
 
 ----------------------------------------------------------------------------------------------------------
+Funcionamiento y comportamiento React
+
 
 La carpeta node_module contiene todas las dependencias y librearias de terceros, usualmente
 no se deberá modificar. Las dependencias también se pueden ver en el package.json.
@@ -56,6 +55,7 @@ I M P O R T A N T E
 ----------------------------------------------------------------------------------------------------------
 CSS y React
 
+
 El archivo CSS de un componente suele llamarse igual que el componente que hace referencia y se pondrá 
 junto a él. Este archivo CSS, al igual que los componentes, se deberá importar al archivo que hace referencia:
 import './ExpenseItem.css';
@@ -65,6 +65,9 @@ la palabra class es una palabra reservada.
 <div className="expense-item">
 
 ----------------------------------------------------------------------------------------------------------
+Variables
+
+
 Para introducir variables dentro de un componente usaremos únicamente {} sin añadir el $ como en JS ni los
 backticks.
  
@@ -75,11 +78,25 @@ Dentro de los {} se podrán realizar operaciones básicas y demás de JS.
 ----------------------------------------------------------------------------------------------------------
 Recibir Datos
 
+
 A la hora de recibir datos, se pondrán en el componente principal <App /> y se añadirán a los componentes
 a los que hacen referencia: 
 
 <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
-        date={expenses[0].date}>
+        date={expenses[0].date}
+		>
 </ExpenseItem>
+
+En el componente donde serán recibidos estos datos, ponemos como parámetro de la función "props" por convención
+y seguidament lo marcamos así en el JSX: 
+<h2>{props.title}</h2>.
+
+Es muy recomendable poner toda la lógica de negocio del componente FUERA del return y dejar el return lo más
+sencillo posible.
+
+
+.toLocaleString() -->  devuelve un cadena con la representación al idioma de la fecha especificada,
+					  muy interesante para poner fechas de diferentes formas en JS y con muchas 0pciones.
+					  const month = props.date.toLocaleString('en-US', {month : 'long'});
