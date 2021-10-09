@@ -100,3 +100,26 @@ sencillo posible.
 .toLocaleString() -->  devuelve un cadena con la representación al idioma de la fecha especificada,
 					  muy interesante para poner fechas de diferentes formas en JS y con muchas 0pciones.
 					  const month = props.date.toLocaleString('en-US', {month : 'long'});
+					  
+----------------------------------------------------------------------------------------------------------
+Cómo pasar datos de un componente a otro
+
+El nombre que le demos al atributo es muy importante a la hora de pasar datos entre componentes.
+Ejemplo que funciona:
+componente A: <Expenses items={expenses} />
+componente B: function Expenses(props) {
+			return (
+					<div className="expenses">
+						<ExpenseItem
+						title={props.items[0].title}
+						amount={props.items[0].amount}
+						date={props.items[0].date}>
+					  </ExpenseItem>
+					  
+Vemos que en <Expenses> el nombre dle atributo es items, para ue así, cuando el componente B reciba 
+esta variable sea capaz de reconocerlo en el props. Si por el contrario, en <Expenses> el nombre
+fuera item esto daría fallo, porque en el componente B no es capaz de reconocer de donde ni como se
+llaman estos datos que se le pasa.
+
+
+		
