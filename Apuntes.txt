@@ -120,6 +120,55 @@ Vemos que en <Expenses> el nombre dle atributo es items, para ue así, cuando el
 esta variable sea capaz de reconocerlo en el props. Si por el contrario, en <Expenses> el nombre
 fuera item esto daría fallo, porque en el componente B no es capaz de reconocer de donde ni como se
 llaman estos datos que se le pasa.
+----------------------------------------------------------------------------------------------------------
+Componete customizado y props.children
 
+Un componente customizado es una extracción de parte de un componente para hacerlo más legible/entendible
+a la hora de trabajar con él. De este modo, podemos crear componentes más sencillo y englobarlo en ellos
+el contenido que quereamos:
 
+*****************************
+import './Card.css';
+
+function Card(props) {
+    return <div className="card">{props.children}</div>;
+}
+
+export default Card;
+*****************************
+Children en una palabra reservada en React. Este atributo indica el contenido dentro del componente que
+se le asigne la propiedad children:
+
+componente1 -con props.children-. Notese que la const classes heredará la clase del componente al que hace referencia
+y se la asignará a nuestro componente Card para el CSS: 
+*****************************
+import './Card.css';
+
+function Card(props) {
+    const classes = 'card ' + props.className;
+    return <div className={classes}>{props.children}</div>;
+}
+
+export default Card;
+*****************************
+Componente2 -donde props.children del anterior componente hace referencia a todo lo que hay dentro de <Card></Card>
+import './ExpenseItem.css';
+import ExpenseDate from './ExpenseDate';
+import Card from './Card';
+
+function ExpenseItem(props) {
+
+    return (
+        <Card className="expense-item">
+            <ExpenseDate date={props.date} />
+            <div className="expense-item__description">
+                <h2>{props.title}</h2>
+                <div className="expense-item__price">${props.amount}</div>
+            </div>
+        </Card>
+    );
+}
+
+export default ExpenseItem;
+*****************************
 		
